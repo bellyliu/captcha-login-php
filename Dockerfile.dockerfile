@@ -8,7 +8,7 @@ COPY ./html/style.css /var/www/html/
 COPY ./php/php.ini /usr/local/etc/php/
 COPY ./apache2/000-default.conf /etc/apache2/sites-available/000-default.conf
 
-RUN apt install ssmtp -y && \
+RUN apt install ssmtp -y
 COPY ./ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf
 COPY ./ssmtp/revaliases /etc/ssmtp/revaliases
 RUN echo "hostname=$(hostname)" >> /etc/ssmtp/ssmtp.conf
