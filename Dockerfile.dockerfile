@@ -10,8 +10,8 @@ COPY ./apache2/000-default.conf /etc/apache2/sites-available/000-default.conf
 
 RUN apt install ssmtp -y
 COPY ./ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf
-COPY ./ssmtp/revaliases /etc/ssmtp/revaliases
-RUN echo "hostname=$(hostname)" >> /etc/ssmtp/ssmtp.conf
+COPY ./ssmtp/revaliases.txt /etc/ssmtp/revaliases
+
 
 RUN a2ensite 000-default.conf
 RUN rm /usr/local/etc/php/php.ini-development && \
